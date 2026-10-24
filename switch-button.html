@@ -1,0 +1,40 @@
+<!--
+  VNW "switch style" button, for BOTH portfolios.
+  1. Paste this whole block once, just before </body>, on every page of each portfolio.
+  2. Change the four settings at the top (STYLE is 'lab' on the Lab site and 'kingdom' on the Kingdom site).
+  3. It links back to your opening page, remembers which style the visitor was in,
+     fades each page in, and (in Chrome, Edge and Safari 18+) cross-fades between your pages with no hard cut.
+  Tip: your Kingdom site has a chat button at the bottom right, so use POSITION 'bottom-left' or 'bottom-center' there.
+-->
+<script>
+(function(){
+  /* ---- edit these four lines ---- */
+  var STYLE='lab';                  // 'lab' or 'kingdom'
+  var OPENING_URL='/';              // where the opening page lives, e.g. 'https://www.yourdomain.in/'
+  var POSITION='bottom-center';     // 'bottom-left' | 'bottom-center' | 'bottom-right'
+  var RESUME_URL='';                // optional: your resume link; leave '' to hide it
+  /* -------------------------------- */
+  try{localStorage.setItem('vnw-style',STYLE)}catch(e){}
+  if(document.getElementById('vnw-switch'))return;
+  var lab=STYLE==='lab';
+  var pos=POSITION==='bottom-left'?'left:14px':POSITION==='bottom-right'?'right:14px':'left:50%;transform:translateX(-50%)';
+  var skin=lab?'background:#d7ff00;color:#0a0a0a;border:2px solid #0a0a0a;border-radius:3px;box-shadow:3px 3px 0 #0a0a0a'
+              :'background:#0b1220;color:#2bff88;border:1.5px solid #2bff88;border-radius:999px;box-shadow:0 0 12px #2bff8844';
+  var f=document.createElement('link');f.rel='stylesheet';f.href='https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap';document.head.appendChild(f);
+  var c=document.createElement('style');
+  c.textContent='@view-transition{navigation:auto}'
+    +'@keyframes vnwin{from{opacity:0}to{opacity:1}}html{animation:vnwin .5s ease both}'
+    +'#vnw-switch{position:fixed;z-index:2147483000;bottom:calc(14px + env(safe-area-inset-bottom,0px));'+pos+';display:flex;gap:8px;font:700 18px/1 Caveat,"Segoe Print","Bradley Hand",cursive}'
+    +'#vnw-switch a{'+skin+';padding:7px 16px;text-decoration:none;transition:transform .25s cubic-bezier(.3,1.8,.5,.8)}'
+    +'#vnw-switch a:hover,#vnw-switch a:focus-visible{transform:translateY(-2px) rotate(-2deg)}'
+    +'@media(prefers-reduced-motion:reduce){html{animation:none}}@media print{#vnw-switch{display:none}}';
+  document.head.appendChild(c);
+  var box=document.createElement('div');box.id='vnw-switch';
+  var a=document.createElement('a');
+  a.href=OPENING_URL+(OPENING_URL.indexOf('?')<0?'?':'&')+'switch=1&from='+STYLE;
+  a.textContent='\u2702 switch style';a.setAttribute('aria-label','Switch to the other portfolio style');
+  box.appendChild(a);
+  if(RESUME_URL){var r=document.createElement('a');r.href=RESUME_URL;r.target='_blank';r.rel='noopener';r.textContent='resume \u2197';box.appendChild(r)}
+  document.body.appendChild(box);
+})();
+</script>
