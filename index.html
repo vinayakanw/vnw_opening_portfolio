@@ -257,7 +257,7 @@ body.calm *,body.calm *::before,body.calm *::after{animation-iteration-count:1!i
 <div id="tags"><a id="rs" target="_blank" rel="noopener" hidden>resume ↗</a></div>
 <div id="rip" aria-hidden="true"></div>
 <div id="toast" role="status"></div>
-<noscript><div style="position:fixed;inset:0;z-index:99;display:grid;place-content:center;gap:1rem;text-align:center;background:#0e0d0c;color:#f4f1ea;font:28px Caveat,'Segoe Print','Bradley Hand',cursive"><b>Vinayaka N Walishettar</b><a href="https://example.com/" style="color:#2bff88">The Kingdom</a><a href="https://www.nayaka100.in/" style="color:#d7ff00">The Lab</a></div></noscript>
+<noscript><div style="position:fixed;inset:0;z-index:99;display:grid;place-content:center;gap:1rem;text-align:center;background:#0e0d0c;color:#f4f1ea;font:28px Caveat,'Segoe Print','Bradley Hand',cursive"><b>Vinayaka N Walishettar</b><a href="https://vnw2.nayaka100.in/" style="color:#2bff88">The Kingdom</a><a href="https://vnw1.nayaka100.in/" style="color:#d7ff00">The Lab</a></div></noscript>
 <button id="mot" aria-label="Toggle motion">motion: on</button>
 <div id="splash">
   <div id="card">
@@ -286,12 +286,12 @@ const mqV=matchMedia('(max-width:700px)'),mqFine=matchMedia('(hover:hover) and (
 
 /* ===== CONFIG: edit these before you deploy ===== */
 const SITES={
-  L:{name:'the Kingdom',url:'https://example.com/',line:'Clean, fast and simple.'},   // DEMO link: replace with your Kingdom portfolio URL
-  R:{name:'the Lab',url:'https://www.nayaka100.in/',line:'Engineer. Secure. Ship.'}
+  L:{name:'the Kingdom',url:'https://vnw2.nayaka100.in/',line:'Clean, fast and simple.'},   // DEMO link: replace with your Kingdom portfolio URL
+  R:{name:'the Lab',url:'https://vnw1.nayaka100.in/',line:'Engineer. Secure. Ship.'}
 };
 const RESUME_URL='';              // optional: resume link; leave empty to hide the small "resume" tag
-const EMAIL='you@example.com';    // DEMO: replace with your email (shown by hire() in the console)
-if(SITES.L.url.includes('example.com'))console.warn('[VNW] The Kingdom link is still the demo link. Edit SITES.L.url in index.html.');
+const EMAIL='vinayakanw@gmail.com';    // DEMO: replace with your email (shown by hire() in the console)
+if(SITES.L.url.includes('vnw2.nayaka100.in'))console.warn('[VNW] The Kingdom link is still the demo link. Edit SITES.L.url in index.html.');
 if(RESUME_URL){const r=$('#rs');r.href=RESUME_URL;r.hidden=false}
 
 /* ===== motion toggle ===== */
